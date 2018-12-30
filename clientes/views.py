@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
-from .models import Clientes, Pedidos, Produtos
-from .forms import ClientesForm, PedidosForm, ProdutosForm
+from .models import Clientes, Pedidos, Produtos, Estoque
+from .forms import ClientesForm, PedidosForm, ProdutosForm, EstoqueForm
 
 
 def cadastro_cliente(request):
-    form = ClientesForm(request.POST or None)
+    form = ClientesForm(request.POST, None)
 
     if form.is_valid():
         form.save()
-        return redirect('lista_cliente')
+        return redirect('clientes/lista_cliente')
     return render(request, 'clientes/clientes_form.html', {'form':form})
 
 def lista_cliente(request):
@@ -21,7 +21,7 @@ def pedido_cliente(request):
 
     if form.is_valid():
         form.save()
-        return redirect(self)
+        return redirect(request, self)
     return render(request, 'clientes/pedidos_form.html', {'form':form})
 
 def produto(request):
@@ -35,6 +35,18 @@ def produto(request):
 def lista_produtos(request):
     listaprodutos = Produtos.objects.all()
     return render(request, 'clientes/produtos.html', {"listaprodutos": listaprodutos})
+
+def estoque(request):
+    form = EstoqueForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect(request, self)
+    return render(request, 'clientes/estoque_form.html', {'form':form})
+
+def lista_estoque(request):
+    listaestoque = Estoque.objects.all()
+    return render(request, 'clientes/estoque.html', {"listaestoque":listaestoque})
+
 
 
 
