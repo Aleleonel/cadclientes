@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cadastro de Cliente</title>
 </head>
 <body>
     <!--em action eu aponto para urls de onde eu quero que o dados sejam emviados para servidor-->
     <!--O metodo post envia informações do formulario.html para o servidor-->
-    <form action="{% url 'cadastro_cliente' %}" method="POST" enctype="multipart/form-data">
+    <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <button type="submit">Salvar</button>
 
     </form>

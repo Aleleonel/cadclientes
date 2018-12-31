@@ -13,9 +13,15 @@
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#">Sobre</a></li>
-                <li><a href="#">O que fazemos?</a>
+                <li><a href="#">Listas</a>
+                    <ul>
+                        <li><a href="{% url 'lista_cliente' %}">Lista de Clientes</a><br></li>
+                        <li><a href="{% url 'lista_produtos' %}">Lista de Produtos</a><br></li>
+                        <li><a href="{% url 'lista_estoque' %}">Lista de Estoque</a><br></li> 
+                    </ul>
+                <li><a href="#">Cadastros</a>
                     <ul>
                         <li><a href="{% url 'cadastro_cliente' %}">Cadastro de Clientes</a><br></li>
                         <li><a href="{% url 'cadastro_produto' %}">Cadastro de Produtos</a><br></li>

@@ -20,7 +20,7 @@ from clientes import urls as clientes_urls
 
 urlpatterns = [
    
-    path('', cliente),
+    path('home/', cliente, name='home'),
     path('clientes/', include(clientes_urls)),
     path('admin/', admin.site.urls),
 ]

@@ -1,19 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Clientes, Pedidos, Produtos, Estoque
 from .forms import ClientesForm, PedidosForm, ProdutosForm, EstoqueForm
-
-
-def cadastro_cliente(request):
-    form = ClientesForm(request.POST, None)
-
-    if form.is_valid():
-        form.save()
-        return redirect('clientes/lista_cliente')
-    return render(request, 'clientes/clientes_form.html', {'form':form})
 
 def lista_cliente(request):
     listaclientes = Clientes.objects.all()
     return render(request, 'clientes/clientes.html', {"listaclientes": listaclientes})
+
+def cadastro_cliente(request):
+    form = ClientesForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('lista_cliente')
+    return render(request, 'clientes/clientes_form.html', {'form':form})
 
 
 def pedido_cliente(request):
@@ -46,6 +44,29 @@ def estoque(request):
 def lista_estoque(request):
     listaestoque = Estoque.objects.all()
     return render(request, 'clientes/estoque.html', {"listaestoque":listaestoque})
+
+def clientes_update(request, cli_id):
+    cliente = get_object_or_404(Clientes, pk=cli_id)
+    form = ClientesForm(request.POST or None, instance=cliente)
+
+    if form.is_valid():
+        form.save()
+        return redirect('lista_cliente')
+
+    return render(request,'clientes/clientes_form.html', {'form':form})
+
+def produto_update(request, pr_id):
+    produto = get_object_or_404(Produtos, pk=pr_id)
+    form = ProdutosForm(request.POST or None, instance=produto)
+
+    if form.is_valid():
+        form.save()
+        return redirect('lista_produtos')
+    return render(request, 'clientes/produtos_form.html', {'form':form})
+    
+
+
+    
 
 
 

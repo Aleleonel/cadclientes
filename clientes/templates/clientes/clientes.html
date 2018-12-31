@@ -9,14 +9,17 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <br>
+        <a href="{% url 'cadastro_cliente' %}">Novo Cliente</a>
+    <br>
+        <a href="{% url 'home' %}">Inicio</a>
     <ul>
         {% for listcli in listaclientes %}
         
-            <li>{{ listcli.cli_nome }}</li>
+            <li><a href="{% url 'clientes_update' listcli.cli_id %}">{{ listcli.cli_nome }}</a></li>
 
         {% endfor %}
     </ul>
     
-   
 </body>
 </html>
