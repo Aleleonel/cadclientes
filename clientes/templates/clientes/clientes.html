@@ -16,7 +16,10 @@
     <ul>
         {% for listcli in listaclientes %}
         
-            <li><a href="{% url 'clientes_update' listcli.cli_id %}">{{ listcli.cli_nome }}</a></li>
+            <li>
+                <a href="{% url 'clientes_update' listcli.cli_id %}">{{ listcli.cli_nome }}</a>
+                <a href="{% url 'cliente_delete' listcli.cli_id %}">Deletar</a>
+            </li>
 
         {% endfor %}
     </ul>

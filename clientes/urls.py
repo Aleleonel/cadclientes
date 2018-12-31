@@ -8,6 +8,8 @@ from .views import estoque
 from .views import lista_estoque
 from .views import clientes_update
 from .views import produto_update
+from .views import cliente_delete
+from .views import produto_delete
 
 
 urlpatterns = [   
@@ -22,5 +24,7 @@ urlpatterns = [
     # urls atualização de cadastro existente
     path('updatecliente/<int:cli_id>/', clientes_update, name="clientes_update"),
     path('updateproduto/<int:pr_id>/', produto_update, name="produto_update"),
+    path('deletecliente/<int:cli_id>/', cliente_delete, name="cliente_delete"),
+    path('deleteproduto/<int:pr_id>/', produto_delete, name="produto_delete"),
 
 ]

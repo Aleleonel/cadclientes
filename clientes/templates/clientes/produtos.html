@@ -9,7 +9,10 @@
 <body>
     <ul>
         {% for prod in listaprodutos %}
-            <li><a href="{% url 'produto_update' prod.pr_id %}">{{ prod.pr_id }} {{prod.pr_descricao}} {{ prod.pr_preco }}</a></li>
+            <li>
+                <a href="{% url 'produto_update' prod.pr_id %}">{{ prod.pr_id }} {{prod.pr_descricao}} {{ prod.pr_preco }}</a>
+                <a href="{% url 'produto_delete' prod.pr_id %}">Deletar</a>
+            </li>
         {% endfor %}
     </ul>
         <a href="{% url 'cadastro_produto' %}">Novo Produto</a>

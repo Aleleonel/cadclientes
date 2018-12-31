@@ -7,13 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'home' %}">Inicio</a>
-
-    <ul>
-        {% for estq in  listaestoque %} 
-            <li>{{estq.est_id}} {{ estq.est_qtd }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Deseja realmente Deletar o protudo o item a baixo?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Deletar</button>
+    </form>
 </body>
 </html>
-

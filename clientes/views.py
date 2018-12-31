@@ -64,6 +64,27 @@ def produto_update(request, pr_id):
         return redirect('lista_produtos')
     return render(request, 'clientes/produtos_form.html', {'form':form})
     
+def cliente_delete(request, cli_id):
+    cliente = get_object_or_404(Clientes, pk=cli_id)
+    #form = ClientesForm(request.POST or None, instance=cliente)
+
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('lista_cliente')
+    return render(request, 'clientes/cliente_delete.confirm.html', {'cliente':cliente})
+
+
+def produto_delete(request, pr_id):
+    produto = get_object_or_404(Produtos, pk=pr_id)
+    form = ProdutosForm(request.POST or None, instance=produto)
+
+    if request.method == 'POST':
+        produto.delete()
+        return redirect('lista_produtos')
+    return render(request, 'clientes/produto_delete.confirm.html', {'form':form})
+
+    
+
 
 
     
