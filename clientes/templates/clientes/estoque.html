@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'home' %}">Inicio</a>
+    <ul>
+        <li><a href="{% url 'menu' %}">Voltar ao Menu Principal</a></li>
+    </ul>
+    
 
     <ul>
         {% for estq in  listaestoque %} 
