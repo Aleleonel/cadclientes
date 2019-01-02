@@ -1,37 +1,47 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Menu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" type="text/css"  href="static/css/estilo.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <nav>
-        <ul class="menu">
-            <li><a href="{% url 'menu' %}">Menu</a></li>
-            <li><a href="{% url 'logout' %}">Sair</a></li>
-                    <ul>
-                        <li><a href="{% url 'lista_cliente' %}">Lista de Clientes</a><br></li>
-                        <li><a href="{% url 'lista_produtos' %}">Lista de Produtos</a><br></li>
-                        <li><a href="{% url 'lista_estoque' %}">Lista de Estoque</a><br></li> 
-                    </ul>
-                <li><a href="#">Cadastros</a>
-                    <ul>
-                        <li><a href="{% url 'cadastro_cliente' %}">Cadastro de Clientes</a><br></li>
-                        <li><a href="{% url 'cadastro_produto' %}">Cadastro de Produtos</a><br></li>
-                        <li><a href="{% url 'cadastro_estoque' %}">Entrada de Estoque</a><br></li>
-                        <li><a href="{% url 'pedido_cliente' %}">Pedidos</a></li>                  
-                    </ul>
-                </li>
-            <li><a href="#">Links</a></li>
-            <li><a href="#">Contato</a></li>                
-        </ul>
-    </nav>    
-</body>
-</html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    
+    <title>Menu Principal</title>
+  </head>
+  <body>
+    <nav role="navigation" class="navbar-default">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <i class="material-icons">menu</i>
+                <span class="sr-only">Navegar</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Menu Principal</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">                
+                <li><a class="dropdown-item" href="{% url 'lista_cliente' %}">Lista de Clientes</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_produtos' %}">Lista de Produtos</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_estoque' %}">Lista de Estoque</a></li>                 
+                <li><a class="dropdown-item" href="{% url 'cadastro_cliente' %}">Cadastro de Clientes</a></li>
+                <li><a class="dropdown-item" href="{% url 'cadastro_produto' %}">Cadastro de Produtos</a></li>
+                <li><a class="dropdown-item" href="{% url 'cadastro_estoque' %}">Entrada de Estoque</a></li>
+                <li><a class="dropdown-item" href="{% url 'pedido_cliente' %}">Pedidos</a></li>                  
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </div>
+    
+    </nav>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

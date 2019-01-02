@@ -1,28 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <br>
-        <a href="{% url 'cadastro_cliente' %}">Novo Cliente</a>
-    <br>
-        <a href="{% url 'menu' %}">Voltar ao Menu Pricipal</a>
-    <ul>
-        {% for listcli in listaclientes %}
-        
-            <li>
-                <a href="{% url 'clientes_update' listcli.cli_id %}">{{ listcli.cli_nome }}</a>
-                <a href="{% url 'cliente_delete' listcli.cli_id %}">Deletar</a>
-            </li>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% endfor %}
-    </ul>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>lista de Clientes</title>
+  </head>
+  <body>
+      
+    <nav role="navigation" class="navbar-default">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <i class="material-icons">menu</i>
+                <span class="sr-only">Navegar</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Lista de Clientes</a>
+        </div>
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">                
+                <li><a class="dropdown-item" href="{% url 'cadastro_cliente' %}">Novo Cliente</a></li>
+                <li><a class="dropdown-item" href="{% url 'menu' %}">Voltar ao Menu Pricipal</a></li>                                    
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="row">    
+                <div class="col-12">
+                    <form class="form-inline">
+                        <div class="form-group mb-2">
+                            
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" class="form-control" id="pesquisa" name=pesquisa placeholder="Pesquisa">
+                        </div>
+                            <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </nav>
+        <ul>
+            {% for listcli in listaclientes %}
+            
+                <li>
+                    <a href="{% url 'clientes_update' listcli.cli_id %}">{{ listcli.cli_nome }}</a>
+                    <a href="{% url 'cliente_delete' listcli.cli_id %}">Deletar</a>
+                </li>
     
-</body>
+            {% endfor %}
+            </ul>
+        
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
