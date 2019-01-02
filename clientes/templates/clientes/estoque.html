@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
-        <li><a href="{% url 'menu' %}">Voltar ao Menu Principal</a></li>
-    </ul>
-    
+{% extends 'base.html' %}
+{% block title %}Estoque {% endblock %}
+
+{% block main %}
+  <nav role="navigation" class="navbar-default">
+      <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <i class="material-icons">menu</i>
+              <span class="sr-only">Navegar</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Lista de Produtos em Estoque</a>
+      </div>
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                
+              <li><a class="dropdown-item" href="{% url 'lista_estoque' %}">Lista de Estoque</a></li>                 
+              <li><a class="dropdown-item" href="{% url 'cadastro_estoque' %}">Entrada de Estoque</a></li>
+              <li><a class="dropdown-item" href="{% url 'pedido_cliente' %}">Pedidos</a></li>                  
+              <li><a class="dropdown-item" href="{% url 'cadastro_produto' %}">Novo Produto</a></li>
+              <li><a class="dropdown-item" href="{% url 'menu' %}">Voltar ao Menu Principal</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+          </ul>
+      </div>
+  
+  </nav>
 
     <ul>
         {% for estq in  listaestoque %} 
             <li>{{estq.est_id}} {{ estq.est_qtd }}</li>
         {% endfor %}
     </ul>
-</body>
-</html>
 
+{% endblock %}

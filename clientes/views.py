@@ -6,7 +6,18 @@ from .forms import ClientesForm, PedidosForm, ProdutosForm, EstoqueForm
 
 @login_required
 def lista_cliente(request):
-    listaclientes = Clientes.objects.all()
+    id = request.GET.get('id', None)
+    nome = request.GET.get('nome', None)
+    
+    #checkbox = request.GET.get('status', None)
+    #if checkbox == 'on':
+    #    listaclientes = Clientes.objects.filter(ativo=True)
+    
+    
+    if id or nome:
+        listaclientes = Clientes.objects.filter(cli_id__icontains=id) | Clientes.objects.filter(cli_nome__icontains=nome)
+    else:
+        listaclientes = Clientes.objects.all()
     return render(request, 'clientes/clientes.html', {"listaclientes": listaclientes})
 
 

@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
-    <H1>Seja Bem vindo</H1>
+{% extends 'base.html' %}
 
-    {% if user.authenticated %}
+{% block title %} Seja Bem Vindo {% endblock %}
+
+{% block main %}
+
+<h1>Seja Bem Vindo</h1>
+
+    {% if user.is_authenticated %}
     
     <p>Olá {{ user.username }}</p><br>
-    <p>O que você deseja fazer?</p><br>
-    
-    <a href="{% url 'logout' %}">Sair</a>
-        <h5>teste de visualização</h5>
+        <a href="{% url 'logout' %}">Sair</a>       
     {% else %}
         <a href="{% url 'login' %}">Entrar</a><br>
-        
     {% endif %}
-</body>
-</html>
+
+{% endblock %}
