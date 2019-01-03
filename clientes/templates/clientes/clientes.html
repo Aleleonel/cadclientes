@@ -3,57 +3,99 @@
 {% block title %}Lista de Clientes{% endblock %}
 
 {% block main %}
-    <nav role="navigation" class="navbar-default">
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <i class="material-icons">menu</i>
-                <span class="sr-only">Navegar</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">Lista de Clientes</a>
-        </div>
+<nav role="navigation" class="navbar-default">
+<div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+        <i class="material-icons">menu</i>
+        <span class="sr-only">Navegar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a href="#" class="navbar-brand">Lista de Clientes</a>
+</div>
 
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">                
-                <li><a class="dropdown-item" href="{% url 'cadastro_cliente' %}">Novo Cliente</a></li>
-                <li><a class="dropdown-item" href="{% url 'menu' %}">Voltar ao Menu Pricipal</a></li>                                    
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
-            </ul>
-        </div>
+<div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">                
+        <li><a class="dropdown-item" href="{% url 'cadastro_cliente' %}">Novo Cliente</a></li>
+        <li><a class="dropdown-item" href="{% url 'menu' %}">Voltar ao Menu Pricipal</a></li>                                    
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+    </ul>
+</div>
 
-        <div class="container">
-            <div class="row">    
-                <div class="col-12">
-                    <form class="form-inline">
-                        <div class="form-group mb-2">
-                            
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" id="id" name=id placeholder="Digite o codigo do cliente">
-                        </div>
-
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" id="nome" name=nome placeholder="Digite o Nome do Cliente">
-                        </div>
-                        
-                            <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
-                    </form>
+<div class="container">
+    <div class="row">    
+        <div class="col-12">
+            <form class="form-inline">
+                <div class="form-group mb-2">
+                    
                 </div>
-            </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="id" name=id placeholder="Digite o codigo do cliente">
+                </div>
+
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="nome" name=nome placeholder="Digite o Nome do Cliente">
+                </div>
+                
+                    <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+            </form>
         </div>
-        
-    </nav>
-        <ul>
-            {% for listcli in listaclientes %}
-            
-                <li>
-                    <a href="{% url 'clientes_update' listcli.cli_id %}">{{listcli.cli_id}} {{ listcli.cli_nome }}</a><input type="checkbox" name="status">
-                    <a href="{% url 'cliente_delete' listcli.cli_id %}">Deletar</a>
-                </li>
+    </div>
+</div>
+
+</nav>
+
+<div class="row">
+<div class="col">
+
+</div>
+
+<div class="col-6">
+    <ul class="list-group">
+        {% for listcli in listaclientes %}
     
-            {% endfor %}
-            </ul>
+            <li class="list-group-item">
+                <a href="{% url 'clientes_update' listcli.cli_id %}">
+                    {{listcli.cli_id}} {{ listcli.cli_nome }}
+                </a>
+                <a href="{% url 'cliente_delete' listcli.cli_id %}" class="trash-item">
+                    <i class = "fa fa-trash " ></i>
+                </a>        
+            </li>
+    
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="col">
+    {% if user.is_authenticated %}
+    <p>Olá {{ user.username }}
+        <a href="{% url 'logout' %}">
+            <Span class="badge badge-info">
+                Sair
+            </Span>
+        </a>
+    </p>            
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-info">
+                Entrar
+            </a><br>
+        {% endif %}
+</div>
+
+</div>
 {% endblock  %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">
+                Bionic-Techo-info Ltda - Todos os direitos reservados
+                <i class="fas fa-registered"></i>
+            </span>
+        </div>
+    </footer>
+{% endblock %}
 

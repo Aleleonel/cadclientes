@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
+
 {% block title %}Login{% endblock %}
 
 {% block main %}
 <h2>Login</h2>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form | crispy }}
     
     <button type= "submit" class= "btn btn-info">Login</button>
 </form>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Bionic-Techo-info Ltda - Todos os direitos reservados</Bionic-Techo-info></span>
+        </div>
+    </footer>
 {% endblock %}

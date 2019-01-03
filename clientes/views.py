@@ -11,7 +11,7 @@ def lista_cliente(request):
     
     #checkbox = request.GET.get('status', None)
     #if checkbox == 'on':
-    #    listaclientes = Clientes.objects.filter(ativo=True)
+    #listaclientes = Clientes.objects.filter(ativo=True)
     
     
     if id or nome:

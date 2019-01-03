@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clientes',
     'home',
+    'crispy_forms', 
+
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,9 @@ MEDIA_ROOT = 'media'
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/clientes/menu/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+STATICFILES_DIRS = [
+    'statics',
+]
