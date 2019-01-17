@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Studio - Bootstrap Agency Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <link rel="stylesheet" href="{% static 'Studio/contactform/contactform.php' %}" >
+  <link rel="stylesheet" href="{% static 'Studio/css/style.css' %}" >
+  <link rel="stylesheet" href="{% static 'Studio/img/portfolio/' %}" >
+  
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700|Lato:400,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/fancybox/fancybox.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Menu -->
+  <nav class="menu" id="theMenu">
+    <div class="menu-wrap">
+      <h1 class="logo"><a href="#home" class="smoothscroll">Studio</a></h1>
+      <i class="fa fa-times menu-close"></i>
+      <a href="#home" class="smoothscroll">Home</a>
+      <a href="#about" class="smoothscroll">About</a>
+      <a href="#portfolio" class="smoothscroll">Portfolio</a>
+      <a href="#services" class="smoothscroll">Services</a>
+      <a href="#contact" class="smoothscroll">Contact</a>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+      <a href="#"><i class="fa fa-envelope"></i></a>
+    </div>
+
+    <!-- Menu button -->
+    <div id="menuToggle"><i class="fa fa-bars"></i></div>
+  </nav>
+
+  <section id="home" name="home"></section>
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>B.I.T.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contactwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <p>ENTRE EM CONTATO AGORA!</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          <p>
+            <small>rua Silva Jardim, 341<br/>
+						13.207-210, São Paulo,<br/>
+						SP.</small>
+          </p>
+          <p>
+            <small>Tel. 1197151-2237<br/>
+						Mail. aleleonel@gmail.com<br/>
+						Skype. aleleonel@gmail.com
+					</p>
+
+				</div>
+
+				<div class="col-lg-6">
+          <form class="#" role="form" action="#" method="POST">
+
+            <div class="form-group">
+              <input type="name" name="name" class="form-control" id="contact-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" id="contact-email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+              <div class="validate"></div>
+            </div>
+
+            <div class="form-group">
+              <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+              <div class="validate"></div>
+            </div>
+
+            <div class="loading"></div>
+            <div class="error-message"></div>
+            <div class="sent-message">Sua mensagem foi enviada. Obrigado!</div>
+
+            <div class="form-send">
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-large">Enviar</button>
+                </form>
+
+              
+            </div>
+
+          </form>
+				</div>
+
+			</div>
+		</div><!-- /container -->
+  </div>
+  
+ 
+
+  <div id="copyrights">
+    <div class="container">
+      <p>
+        &copy; Copyrights <strong>BIONICO-INFO-TECHNO-LTDA</strong>. All Rights Reserved
+      </p>
+      <div class="credits">
+        Created with Studio template by <a href="https://templatemag.com/">TemplateMag</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- / copyrights -->
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/php-mail-form/validate.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/stellar/stellar.min.js"></script>
+  <script src="lib/fancybox/fancybox.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

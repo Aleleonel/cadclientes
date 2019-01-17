@@ -11,11 +11,11 @@ class ClientesForm(ModelForm):
         ]
 
 
-class PedidosForm(ModelForm):
+class PedidosForm(ModelForm):       
     class Meta:
         model = Pedidos
-        fields = ['ped_nomecli', 'ped_enderco', 'ped_qte', 'ped_vluntario',
-        'ped_vltotalitem', 'ped_vltotalpedido'
+        fields =['ped_nomecli','ped_enderco','ped_vluntario',
+        'ped_qte','ped_vltotalitem','ped_vltotalpedido'
         ]
 
 class ProdutosForm(ModelForm):

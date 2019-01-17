@@ -1,0 +1,7 @@
+listagem de clientes
+
+{% for clientes in object_list %}
+    <ul>
+        <li><a  href="{% url 'clientes_cbv' clientes.cli_id %}">{{ clientes }}</a></li>
+    </ul>
+{% endfor %}

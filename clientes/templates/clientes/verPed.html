@@ -1,0 +1,25 @@
+{% extends 'base2.html' %}
+{% block title %} Produtos {% endblock %}
+{% load crispy_forms_tags %}
+{% block titulo %}Lista de pedidos{% endblock %}
+    
+    {% block content %}
+        <ul>
+        {% for ped in pedido.all %}
+            <li>
+                {{ ped.ped_id }} 
+                {{ ped.cli_id }} 
+                {{ ped.ped_vltotalpedido }}
+            </li>
+
+            {% for item in itens.all %}
+                <li>                        
+                    {{ item.ped_id }}
+                </li>                          
+            {% endfor %} 
+
+        {% endfor %}
+        </ul>
+    {% endblock %}
+
+        

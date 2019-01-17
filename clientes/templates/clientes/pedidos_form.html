@@ -1,5 +1,7 @@
 {% extends 'base2.html' %}
-{% block title %} Produtos {% endblock %}
+
+{% block title %} Pedidos {% endblock %}
+
 {% load crispy_forms_tags %}
 {% block titulo %}Pedidos{% endblock %}
     
@@ -7,8 +9,9 @@
    
     
     <form method="POST">
-            {{ form | crispy }} 
-            <button type= "submit" class= "btn btn-success">Salvar</button>
+        {% csrf_token %}
+        {{ form | crispy }} 
+        <button type= "submit" class= "btn btn-success">Salvar</button>
     </form>
 
     {% endblock %}
